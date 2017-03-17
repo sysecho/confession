@@ -5,9 +5,12 @@
 */
 package com.confession.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.confession.redis.RedisService;
 
@@ -19,9 +22,11 @@ public class HomeController{
 	private RedisService redis;
 	
 	@RequestMapping("home")
-	public String index(){
-		System.out.println(redis.count("1"));
-		System.out.println("index");
-		return "index";
+	public Object index(){
+		ModelAndView model = new ModelAndView();
+		redis.add("date", "1", new Date());
+		model.addObject("date", redis.get("date", "1"));
+		model.setViewName("index");
+		return model;
 	}
 }
