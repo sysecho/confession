@@ -1,8 +1,3 @@
-/** 
- * 这里用一句话描述这个类的作用
- * @author xiaofei.xian 
- * @version V1.0 
-*/
 package com.confession.controller;
 
 import java.util.Collections;
@@ -16,18 +11,26 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.ResponseBody;
+=======
+import org.springframework.web.bind.annotation.RequestMethod;
+>>>>>>> branch 'master' of https://github.com/sysecho/confession.git
 import org.springframework.web.servlet.ModelAndView;
 import com.confession.entity.Confession;
 import com.confession.redis.RedisService;
 
 @Controller
+<<<<<<< HEAD
 @RequestMapping("index")
+=======
+>>>>>>> branch 'master' of https://github.com/sysecho/confession.git
 public class HomeController {
 
 	@Autowired
 	private RedisService redis;
 
+<<<<<<< HEAD
 	@RequestMapping("home")
 	public Object index() {
 		ModelAndView model = new ModelAndView();
@@ -46,6 +49,12 @@ public class HomeController {
 			}
 		});
 		model.addObject("confessions", list);
+=======
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public Object home(ModelAndView model) {
+		redis.add("date", "1", new Date());
+		model.addObject("date", redis.get("date", "1"));
+>>>>>>> branch 'master' of https://github.com/sysecho/confession.git
 		model.setViewName("index");
 		return model;
 	}

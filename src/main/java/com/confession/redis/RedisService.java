@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
  * @author xiaofei.xian
  * @version V1.0
  */
+
 @Component
 public class RedisService {
 	
