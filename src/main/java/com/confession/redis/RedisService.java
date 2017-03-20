@@ -3,8 +3,7 @@ package com.confession.redis;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Component;
  * @author xiaofei.xian
  * @version V1.0
  */
+
 @Component
 public class RedisService {
 	
@@ -22,7 +22,7 @@ public class RedisService {
 	/*
 	 * redis 服务
 	 */
-	@Autowired
+	@Resource 
 	private RedisTemplate<Serializable, Serializable> redisTemplate;
 	
 	/**
