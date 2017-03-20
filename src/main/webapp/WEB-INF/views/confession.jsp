@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -16,7 +18,7 @@
 <body>
 	<div class="page">
 			<header class="bar bar-nav">
-				  <a class="button button-link button-nav pull-left" href="home" data-transition='slide-out'>
+				  <a class="button button-link button-nav pull-left" href="index/list" data-transition='slide-out'>
 				      <span class="icon icon-left"></span>
 				    	  返回
 				    </a>
@@ -69,7 +71,7 @@
 				</div>
 			</form>
 		<nav class="bar bar-tab">
-		  <a class="tab-item external active" href="home">
+		  <a class="tab-item external active" href="index/list">
 		    <span class="icon icon-home"></span>
 		    <span class="tab-label">首页</span>
 		  </a>
