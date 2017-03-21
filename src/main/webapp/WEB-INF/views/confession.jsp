@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="../static/css/sm.min.css">
     <link rel="stylesheet" href="../static/css/sm-extend.min.css">
 	<title>一封写给你的情书</title>
+	<style type="text/css">
+		#sysecho{
+			background-image:url(../static/images/background.jpg);	
+		}
+	</style>
 </head>
 <body>
 	<div class="page-group">
@@ -39,7 +44,7 @@
 			    <span class="tab-label">关于留言</span>
 			  </a>
 			</nav>
-			<div class="content native-scroll">	
+			<div id="sysecho" class="content native-scroll">	
 				<form action="submit" id="submitForm" method="post">
 					<div class="content">
 					  <div class="list-block">
