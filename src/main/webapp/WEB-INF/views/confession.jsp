@@ -13,16 +13,15 @@
 	<link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../static/css/sm.min.css">
     <link rel="stylesheet" href="../static/css/sm-extend.min.css">
-	<title>这里有一封写给你的情书</title>
+	<title>一封写给你的情书</title>
 </head>
 <body>
 	<div class="page-group">
       <div class="page page-current" id="page-1490060512143">
 			<header class="bar bar-nav"> 
-				 <!-- <a class="button button-link button-nav pull-left" href="list" data-transition='slide-out'>
-				      <span class="icon icon-left"></span>
-				    	  返回
-			    </a> -->
+				<a class="button button-link button-nav pull-left" href="list" data-transition='slide-out'>
+				      <span class="icon icon-left"></span> 返回
+			    </a>
 				<h1 class="title">春风十里不如你</h1> 
 			</header>
 			<nav class="bar bar-tab">
@@ -96,7 +95,7 @@
 	</div>
 	<script type="text/javascript">
 		function aboutMe(){
-			$.alert('来了，坐。这里是湖科大微信表白墙匿名告白处，我们会将你的留言推送到公众平台上。');
+			$.alert('这里是湖科大微信表白墙匿名告白处，我们会将你的留言推送到公众平台上。');
 		}
 	</script>
 	<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->

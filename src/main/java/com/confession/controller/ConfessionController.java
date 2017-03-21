@@ -31,8 +31,8 @@ public class ConfessionController {
 	private RedisService redis;
 
 	@RequestMapping("list")
-	public Object index(@RequestParam("phone")String phone) {
-		if("17603036433".equals(phone)){
+	public Object index(@RequestParam(value="phone",required=false)String phone) {
+		if("17603036433".equals(phone) || "17603036477".equals(phone)){
 			ModelAndView model = new ModelAndView();
 			model.setViewName("index");
 			return model;
