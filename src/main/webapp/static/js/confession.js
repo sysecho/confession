@@ -3,11 +3,10 @@ function submitForm(){
 	if(content){
 		$.post("submit",{content:content,name:$("#name").val(),fromeUser:$("#fromeUser").val()},function(data){
 			if(data.success == true){
-				$.toast("留言成功啦，等带微信推送吧~~");
-				window.location.href="list";
+				$.alert("留言成功啦，等带微信推送吧~~");
 			}
 		});
 	}else{
-		$.alert('哈哈~~~~~~内容不能为空哦~');
+		$.alert('难道一句话都没有吗？~');
 	}
 }

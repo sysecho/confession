@@ -13,27 +13,28 @@
 	<link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="../static/css/sm.min.css">
     <link rel="stylesheet" href="../static/css/sm-extend.min.css">
-	<title>Hello World!</title>
+	<title>这里有一封写给你的情书</title>
 </head>
 <body>
 	<div class="page-group">
       <div class="page page-current" id="page-1490060512143">
 			<header class="bar bar-nav"> 
-				 <a class="button button-link button-nav pull-left" href="list" data-transition='slide-out'>
+				 <!-- <a class="button button-link button-nav pull-left" href="list" data-transition='slide-out'>
 				      <span class="icon icon-left"></span>
 				    	  返回
-			    </a>
+			    </a> -->
 				<h1 class="title">春风十里不如你</h1> 
 			</header>
 			<nav class="bar bar-tab">
-			  <a class="tab-item external active" href="list">
-			    <span class="icon icon-home"></span>
-			    <span class="tab-label">首页</span>
-			  </a>
-			  <a class="tab-item external active" href="confession">
-			    <span class="icon icon-edit"></span>
-			    <span class="tab-label">我要留言</span>
-			  </a>
+			 <!-- <a class="tab-item external active" href="list">
+				    <span class="icon icon-home"></span>
+				    <span class="tab-label">首页</span>
+				  </a> 
+				  <a class="tab-item external active" href="confession">
+				    <span class="icon icon-edit"></span>
+				    <span class="tab-label">我要留言</span>
+				  </a>
+			  -->
 			  <a class="tab-item external active" href="javascript:aboutMe();">
 			    <span class="icon icon-emoji"></span>
 			    <span class="tab-label">关于留言</span>
@@ -72,7 +73,7 @@
 					          <div class="item-inner">
 					            <div class="item-title label">你的名字	<span class="icon icon-me"></span></div>
 					            <div class="item-input">
-					              <input type="text" placeholder="你的名字，可以匿名哦" name="fromeUser" id="fromeUser">
+					              <input type="text" placeholder="不填可以匿名哦" name="fromeUser" id="fromeUser">
 					            </div>
 					          </div>
 					        </div>
@@ -84,6 +85,10 @@
 					      <div class="col-100"><a href="javascript:submitForm();" class="button button-big button-fill button-success">提交</a></div>
 					    </div>
 					  </div>
+					  <div align="center" style="width: 100%;">
+					  		<img alt="微信公众号" src="../static/images/hnust.jpg" style="width: 50%;">
+					  </div>
+		              </div>
 					</div>
 				</form>
 			</div>
@@ -91,7 +96,7 @@
 	</div>
 	<script type="text/javascript">
 		function aboutMe(){
-			$.alert('这里湖科大微信表白墙匿名告白处，我们会将你的留言推送到公众平台上。');
+			$.alert('来了，坐。这里是湖科大微信表白墙匿名告白处，我们会将你的留言推送到公众平台上。');
 		}
 	</script>
 	<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->

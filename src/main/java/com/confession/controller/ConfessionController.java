@@ -31,10 +31,14 @@ public class ConfessionController {
 	private RedisService redis;
 
 	@RequestMapping("list")
-	public Object index() {
-		ModelAndView model = new ModelAndView();
-		model.setViewName("index");
-		return model;
+	public Object index(@RequestParam("phone")String phone) {
+		if("17603036433".equals(phone)){
+			ModelAndView model = new ModelAndView();
+			model.setViewName("index");
+			return model;
+		}else{
+			return "confession";
+		}
 	}
 	
 	@RequestMapping("listConfessions")
