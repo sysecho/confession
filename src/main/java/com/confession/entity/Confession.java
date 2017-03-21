@@ -3,6 +3,10 @@ package com.confession.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Confession implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +17,8 @@ public class Confession implements Serializable{
 
 	private String fromeUser;
 
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createDate;
 
 	public String getName() {

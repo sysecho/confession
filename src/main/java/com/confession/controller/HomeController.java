@@ -10,7 +10,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Object index(ModelAndView model){
-		model.setViewName("index/list");
-		return model;
+		return "redirect:index/list";
 	}
 }
