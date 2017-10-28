@@ -24,9 +24,6 @@
 	<div class="page-group">
       <div class="page page-current" id="page-1490060512143">
 			<header class="bar bar-nav"> 
-				<a class="button button-link button-nav pull-left" href="list" data-transition='slide-out'>
-				      <span class="icon icon-left"></span> 返回
-			    </a>
 				<h1 class="title">春风十里不如你</h1> 
 			</header>
 			<nav class="bar bar-tab">

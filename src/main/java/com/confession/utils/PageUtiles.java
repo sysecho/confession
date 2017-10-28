@@ -4,24 +4,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/** 
+/**
  * 分页控制
- * @author xiaofei.xian 
- * @version V1.0 
+ * @author xiaofei.xian
+ * @version V1.0
 */
 public class PageUtiles {
-	
+
 	/*
      * 分页控制
      */
 	public static List<Object> page(List<Object> list, int page, int size){
 		Collections.sort(list, new ComparatorUtils());
 		int len = page+size>list.size()?list.size():page+size;
+		page = page * 5;
         List<Object> reList = new ArrayList<Object>();
-        for (; page < len; page++) {
+		for (; page <= len; page++) {
         	reList.add(list.get(page));
         }
         return reList;
 	}
-	
+
 }

@@ -21,8 +21,10 @@ function addItems(page, size) {
 			});
 			// 添加新条目
 			$('.infinite-scroll-bottom .list-container').append(html);
+			 // 重置加载flag
+	        loading = false;
+	        $('.infinite-scroll-preloader').addClass('loadHide');
 		}
-		disabledRefesh((page+1)*size);
 	});
 }
 //预先加载20条
@@ -40,26 +42,21 @@ $(document).on('infinite', '.infinite-scroll-bottom', function() {
 
 	// 设置flag
 	loading = true;
-
-	// 重置加载flag
-	loading = false;
-	// 添加新条目
+    if ((page+1)*size >= maxItems) {
+        // 加载完毕，则注销无限加载事件，以防不必要的加载
+        $.detachInfiniteScroll($('.infinite-scroll'));
+        // 删除加载提示符
+        $('.infinite-scroll-preloader').remove();
+        return;
+    }
+    // 添加新条目
+    page++;
 	addItems(page, size);
-	page++;
-	//容器发生改变,如果是js滚动，需要刷新滚动
-	$.refreshScroller();
+    // 更新最后加载的序号
+    lastIndex = $('.list-container li').length;
+    //容器发生改变,如果是js滚动，需要刷新滚动
+    $.refreshScroller();
 });
-
-function disabledRefesh(total){
-	if (total >= maxItems) {
-		$.toast("数据加载完毕！");
-		// 加载完毕，则注销无限加载事件，以防不必要的加载
-		$.detachInfiniteScroll($('.infinite-scroll'));
-		// 删除加载提示符
-		$('.infinite-scroll-preloader').remove();
-		return;
-	}
-}
 function aboutMe(){
 	$.alert('这里湖科大微信表白墙匿名告白处，我们会将你的留言推送到公众平台上。');
 }
