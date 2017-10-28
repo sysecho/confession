@@ -16,10 +16,10 @@ public class PageUtiles {
      */
 	public static List<Object> page(List<Object> list, int page, int size){
 		Collections.sort(list, new ComparatorUtils());
-		int len = page+size>list.size()?list.size():page+size;
+		int len = (page + 1) * size > list.size() ? list.size() : (page + 1) * size;
 		page = page * 5;
         List<Object> reList = new ArrayList<Object>();
-		for (; page <= len; page++) {
+		for (; page < len; page++) {
         	reList.add(list.get(page));
         }
         return reList;
