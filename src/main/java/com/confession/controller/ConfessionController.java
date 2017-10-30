@@ -17,16 +17,16 @@ import com.confession.entity.Confession;
 import com.confession.redis.RedisService;
 import com.confession.utils.PageUtiles;
 
-/** 
+/**
  * 这里用一句话描述这个类的作用
- * @author xiaofei.xian 
- * @version V1.0 
+ * @author xiaofei.xian
+ * @version V1.0
 */
 
 @Controller
 @RequestMapping("index")
 public class ConfessionController {
-	
+
 	@Autowired
 	private RedisService redis;
 
@@ -40,7 +40,7 @@ public class ConfessionController {
 			return "confession";
 		}
 	}
-	
+
 	@RequestMapping("listConfessions")
 	@ResponseBody
 	public Object listConfessions(@RequestParam("page")int page,@RequestParam("size") int size) {
@@ -66,5 +66,10 @@ public class ConfessionController {
 	public Object confessions() {
 		return "confession";
 	}
-	
+
+	@RequestMapping("success")
+	public Object success(ModelAndView model) {
+		return "success";
+	}
+
 }

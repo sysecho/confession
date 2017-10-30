@@ -13,9 +13,7 @@ function submitForm(){
 	$.post("submit",{content:content,name:name,fromeUser:$("#fromeUser").val()},function(data){
 		if(data.success == true){
 			$.hidePreloader();
-			 $.alert("亲留言成功啦，我们会帮你推送的哦~~，确定后将关闭窗口", function () {
-				 window.close();
-		     });
+			window.location.href="success"
 		}
 	});
 }
