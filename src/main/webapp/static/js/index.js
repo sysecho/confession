@@ -24,6 +24,7 @@ function addItems(page, size) {
 			 // 重置加载flag
 	        loading = false;
 	        $('.infinite-scroll-preloader').addClass('loadHide');
+	        $('.infinite-scroll-preloader').remove();
 		}
 	});
 }
