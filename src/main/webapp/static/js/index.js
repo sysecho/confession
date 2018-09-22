@@ -8,7 +8,7 @@ var size = 5;
 var page = 0;
 
 function addItems(page, size) {
-	$.post('listConfessions',{page:page,size:size},function(data){
+	$.get('listConfessions',{page:page,size:size},function(data){
 		if(data.success == true){
 			maxItems = data.total;
 			var rows = data.rows;

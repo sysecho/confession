@@ -8,7 +8,9 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,6 +29,7 @@ import com.confession.utils.PageUtiles;
 @RequestMapping("index")
 public class ConfessionController {
 
+	private static String CONFESSIONS_KEY = "confessions";
 	@Autowired
 	private RedisService redis;
 
@@ -41,11 +44,11 @@ public class ConfessionController {
 		}
 	}
 
-	@RequestMapping("listConfessions")
+	@RequestMapping(value="listConfessions",method=RequestMethod.GET)
 	@ResponseBody
-	public Object listConfessions(@RequestParam("page")int page,@RequestParam("size") int size) {
+	public Object listConfessions(@RequestParam(value="page",required=false)Integer page,@RequestParam(value="size",required=false) Integer size) {
 		Map<String,Object> reMap = new HashMap<String,Object>();
-		List<Object> list = redis.get("confessions");
+		List<Object> list = redis.get(CONFESSIONS_KEY);
 		reMap.put("total", list.size());
 		reMap.put("success", true);
 		reMap.put("rows", PageUtiles.page(list, page, size));
@@ -57,7 +60,17 @@ public class ConfessionController {
 	public Object submit(Confession confession) {
 		Map<String, Object> reMap = new HashMap<String, Object>();
 		confession.setCreateDate(new Date());
-		redis.add("confessions", UUID.randomUUID().toString(), confession);
+		confession.setId(UUID.randomUUID().toString().toUpperCase().replace("-", ""));
+		redis.add(CONFESSIONS_KEY, confession.getId(), confession);
+		reMap.put("success", true);
+		return reMap;
+	}
+	
+	@RequestMapping("del")
+	@ResponseBody
+	public Object del(@RequestParam(value="id",required=true)String id) {
+		Map<String, Object> reMap = new HashMap<String, Object>();
+		redis.del(CONFESSIONS_KEY, id);
 		reMap.put("success", true);
 		return reMap;
 	}
@@ -65,6 +78,11 @@ public class ConfessionController {
 	@RequestMapping("confession")
 	public Object confessions() {
 		return "confession";
+	}
+	
+	@RequestMapping("manager")
+	public Object manager() {
+		return "manager";
 	}
 
 	@RequestMapping("success")

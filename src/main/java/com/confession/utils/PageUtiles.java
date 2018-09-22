@@ -14,8 +14,11 @@ public class PageUtiles {
 	/*
      * 分页控制
      */
-	public static List<Object> page(List<Object> list, int page, int size){
+	public static List<Object> page(List<Object> list, Integer page, Integer size){
 		Collections.sort(list, new ComparatorUtils());
+		if(null == page || null == size){
+			return list;
+		}
 		int len = (page + 1) * size > list.size() ? list.size() : (page + 1) * size;
 		page = page * 5;
         List<Object> reList = new ArrayList<Object>();
