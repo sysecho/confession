@@ -61,8 +61,8 @@
 		        field: 'content',
 		        title: '内容',
 		        formatter:function(value, row, index){
-		        	if(value.length > 25){
-						content = '<div title="'+value+'">'+value.substring(0,25)+'<a href="javascript:void(0)"全部...</a></div>';
+		        	if(value.length > 70){
+						content = '<div title="'+value+'">'+value.substring(0,70)+'<a href="javascript:void(0)">&nbsp;全部...</a></div>';
 					}else{
 						content = value;
 					}
