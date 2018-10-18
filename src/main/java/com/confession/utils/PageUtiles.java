@@ -20,7 +20,7 @@ public class PageUtiles {
 			return list;
 		}
 		int len = (page + 1) * size > list.size() ? list.size() : (page + 1) * size;
-		page = page * 5;
+		page = page * size;
         List<Object> reList = new ArrayList<Object>();
 		for (; page < len; page++) {
         	reList.add(list.get(page));
